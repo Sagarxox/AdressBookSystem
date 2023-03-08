@@ -11,6 +11,7 @@ namespace AddressBookSystem
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Welcome to the address Book System Problem");
 
             Console.WriteLine("Enter the First Name");
@@ -28,7 +29,6 @@ namespace AddressBookSystem
             Console.WriteLine("Enter the Phone Number");
             long phoneNumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter the Email");
-
             string email = Console.ReadLine();
 
             AddressBookMain addressBookMain = new AddressBookMain();
@@ -37,13 +37,32 @@ namespace AddressBookSystem
             
             addressBookMain.PrintList();
             Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Enter first name of contact to be edited");
-            string firstNameEditedContact = Console.ReadLine();
-            Console.WriteLine("Enter last name of contact to be edited");
-            string lastNameEditedContact = Console.ReadLine();
+            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact ");
+            int choice = Convert.ToInt32(Console.ReadLine());
 
-            addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
+            switch (choice)
+            {
+
+                case 1:
+                    Console.WriteLine("Enter first name of contact to be edited");
+                    string firstNameEditedContact = Console.ReadLine();
+                    Console.WriteLine("Enter last name of contact to be edited");
+                    string lastNameEditedContact = Console.ReadLine();
+                    addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr the name of contact to be deleted");
+                    string firstNameDeletedContact = Console.ReadLine();
+                    Console.WriteLine("Enter last name of contact to be deleted");
+                    string lastNameDeletedContact = Console.ReadLine();
+                    addressBookMain.DeleteContact(firstNameDeletedContact, lastNameDeletedContact);
+                    break;
+                default:
+                    Console.WriteLine("Enetr valid choice");
+                    break;
+            }
             Console.ReadLine();
+
         }
 
     }
