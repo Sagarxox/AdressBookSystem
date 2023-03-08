@@ -28,14 +28,21 @@ namespace AddressBookSystem
             Console.WriteLine("Enter the Phone Number");
             long phoneNumber = Convert.ToInt64(Console.ReadLine());
             Console.WriteLine("Enter the Email");
+
             string email = Console.ReadLine();
 
             AddressBookMain addressBookMain = new AddressBookMain();
 
-            AddressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            addressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             
-
             addressBookMain.PrintList();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Enter first name of contact to be edited");
+            string firstNameEditedContact = Console.ReadLine();
+            Console.WriteLine("Enter last name of contact to be edited");
+            string lastNameEditedContact = Console.ReadLine();
+
+            addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
             Console.ReadLine();
         }
 
